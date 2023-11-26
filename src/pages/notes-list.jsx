@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Navbar from '../components/nav'
 import Footer from '../components/footer'
-import { GrArchive, GrTrash } from 'react-icons/gr'
 import { useNavigate } from 'react-router-dom'
 
 export default function Home() {
@@ -48,35 +47,33 @@ export default function Home() {
     return (
         <>
             <Navbar />
-            <div className="container mx-auto">
+            <div className="container">
                 <main className="flex gap-5">
                     <div className='w-full mb-5'>
                         <div className="flex justify-between items-center mb-4">
-                            <h1 className='font-semibold text-2xl'>Active Note / Catatan Aktif</h1>
-                            <button className='bg-yellow-200 px-4 py-2 rounded-sm' onClick={() => navigate('/add-note')}>Tambah Catatan</button>
+                            <h1 className='font-semibold text-2xl'>Semua Catatan</h1>
+                            <button className='btn btn-primary text-white' onClick={() => navigate('/add-note')}>Tambah Catatan</button>
                         </div>
                         {/* Content Start */}
                         {
                             content ? (
                                 content?.map((data, i) => (
-                                    <div className="bg-white px-7 py-8 rounded-sm border hover:bg-yellow-50 mt-3" key={i}>
-                                        <h1 className='font-medium text-lg'>{data?.title}</h1>
-                                        <p className='font-light text-md mt-3'>
-                                            {data?.body}
-                                        </p>
-                                        <div className="w-full flex justify-between mt-4">
-                                            <small className='font-extralight text-gray-500'>
-                                                {data?.createdAt}
-                                            </small>
-                                            <div className="icons flex gap-3">
-                                                <GrTrash
-                                                    className='hover:text-red-500 hover:cursor-pointer'
-                                                    onClick={() => deleteContent(data?.id)}
-                                                />
-                                                <GrArchive
-                                                    className='hover:text-orange-500 hover:cursor-pointer'
-                                                    onClick={() => archiveContent(data?.id)}
-                                                />
+                                    <div className="card" key={i}>
+                                        <div className="card-body">
+                                            <h5 className='card-title'>{data?.title}</h5>
+                                            <p className='card-text'>
+                                                {data?.body}
+                                            </p>
+                                            <div className="w-full flex justify-between mt-4">
+                                                <small className='font-extralight text-gray-500'>
+                                                    {data?.createdAt}
+                                                </small>
+                                                <div className="icons flex gap-3">
+                                                <button className="btn btn-danger text-white" type="submit" onClick={() => deleteContent(data?.id)}>
+                                                    Hapus</button>
+                                                    <button className="btn btn-info text-white" type="submit" onClick={() => archiveContent(data?.id)}>
+                                                    Arsip</button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -86,6 +83,7 @@ export default function Home() {
                             )
                         }
                     </div>
+
                 </main>
             </div>
             <Footer></Footer>

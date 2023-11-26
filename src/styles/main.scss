@@ -1,0 +1,13 @@
+$primary: #39A7FF;
+$danger: #FF8080;
+$info: #FFA1F5;
+$gray-100: #E0F4FF;
+
+
+
+@import "bootstrap";
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+.card{
+    width: 18rem;
+}

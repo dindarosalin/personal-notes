@@ -46,7 +46,7 @@ export default function Archived() {
 
     return (
         <>
-            <div className="container mx-auto">
+            <div className="container">
                 <main className="flex gap-5">
                     <Navbar active_tab={2} />
                     <div className='w-full mb-5'>
