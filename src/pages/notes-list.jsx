@@ -46,40 +46,42 @@ export default function Home() {
 
     return (
         <>
-            <Navbar />
+            <Navbar active_tab={1}/>
             <div className="container">
-                <main className="">
-                        <div className="items-center mb-4">             
-                            <h1 className='text-center'>Semua Catatan</h1>
-                            <button className='btn btn-primary text-white' onClick={() => navigate('/add-note')}>Tambah Catatan</button>
-                        </div>
-                        {
-                            content ? (
-                                content?.map((data, i) => (
-                                    <div className="row" key={i}>
-                                        <div className="col-sm-6 mb-3 mb-sm-0">
-                                            <div className="card">
-                                                <div className="card-body">
-                                                    <h5 className="card-title">{data?.title}</h5>
-                                                    <p className="card-subtitle mb-2 text-body-secondary">{data?.createdAt}</p>
-                                                    <p className="card-text">
-                                                        {data?.body}
-                                                    </p>
-                                                    <a href="#" className="card-link" onClick={() => deleteContent(data?.id)}>Hapus</a>
-                                                    <a href="#" className="card-link" onClick={() => archiveContent(data?.id)}>Arsip</a>
-                                                    <a href="#" className="card-link" onClick={() => navigate(`/note-detail/${data?.id}`)}>Detail</a>
-                                                </div>
+                <main>
+                <div className="items-center mb-4">
+                    <div className="items-ceter mb-4">
+                        <h1 className='text-center'>Semua Catatan</h1>
+                        <button className='btn btn-primary text-white' onClick={() => navigate('/add-note')}>Tambah Catatan</button>
+                    </div>
+                    {
+                        content ? (
+                            content?.map((data, i) => (
+                                <div className="row" key={i}>
+                                    <div className="col-sm-6 mb-3 mb-sm-0">
+                                        <div className="card">
+                                            <div className="card-body">
+                                                <h5 className="card-title">{data?.title}</h5>
+                                                <p className="card-subtitle mb-2 text-body-secondary">{data?.createdAt}</p>
+                                                <p className="card-text">
+                                                    {data?.body}
+                                                </p>
+                                                <a href="#" className="card-link" onClick={() => deleteContent(data?.id)}>Hapus</a>
+                                                <a href="#" className="card-link" onClick={() => archiveContent(data?.id)}>Arsip</a>
+                                                <a href="#" className="card-link" onClick={() => navigate(`/note-detail/${data?.id}`)}>Detail</a>
                                             </div>
                                         </div>
                                     </div>
-                                ))
-                            ) : (
-                                <h1 className='text-center'>Tidak ada catatan</h1>
-                            )
-                        }
+                                </div>
+                            ))
+                        ) : (
+                            <h1 className='text-center'>Tidak ada catatan</h1>
+                        )
+                    }
+                    </div>
                 </main>
             </div>
-            <Footer></Footer>
+            <Footer />
         </>
     )
 }
