@@ -19,22 +19,22 @@ export default function DetailNote() {
 
     return (
         <>
-            <Navbar />
+            <Navbar active_tab={1} />
             <div className='container'>
-            {data ? (
-                <div>
-                <div className="card">
-                    <div className='card-body'>
-                    <h1 className='card-title'>{data.title}</h1>
-                    <p className='card-subtitle text-body-secondary'>{data.createdAt}</p>
-                    <p className='card-text'>{data.body}</p>
-                </div>
-                    </div>
+                {data ? (
+                    <div className='items-center mb-4'>
+                        <div className="card">
+                            <div className='card-body'>
+                                <h1 className='card-title'>{data.title}</h1>
+                                <p className='card-subtitle text-body-secondary'>{data.createdAt}</p>
+                                <p className='card-text'>{data.body}</p>
+                            </div>
+                        </div>
 
-                </div>
-            ) : (
-                <h1>Catatan tidak ditemukan</h1>
-            )}
+                    </div>
+                ) : (
+                    <h1>Catatan tidak ditemukan</h1>
+                )}
             </div>
             <Footer />
         </>

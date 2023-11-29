@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Navbar from '../components/nav'
 import { useNavigate } from 'react-router-dom'
 import Footer from '../components/footer'
+import PropTypes from 'prop-types'
 
 export default function AddNote() {
     const navigate = useNavigate()
@@ -14,11 +15,7 @@ export default function AddNote() {
         const existingNoteData = sessionStorage.getItem('notes');
         const noteData = existingNoteData ? JSON.parse(existingNoteData) : [];
         const newData = {
-            id: title
-                .toLowerCase()
-                .replace(/[^a-z0-9]+/g, '-')
-                .replace(/^-+|-+$/g, '')
-                .trim(),
+            id: title + new Date(),
             title: title,
             body: body,
             archived: archived,
@@ -37,7 +34,7 @@ export default function AddNote() {
 
     return (
         <>
-            <Navbar />
+            <Navbar active_tab={1}/>
             <div className='container mb-3'>
                 <form onSubmit={handleSubmit} >
                     <div className="mb-3">
