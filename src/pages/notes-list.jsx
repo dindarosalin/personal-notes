@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import Navbar from '../components/nav'
 import Footer from '../components/footer'
-import { Link } from 'react-router-dom'
-import { useNavigate } from 'react-router-dom'
 
 export default function Home() {
     const navigate = useNavigate()
@@ -15,11 +14,11 @@ export default function Home() {
             }
         })
         setContent(newContent)
-        sessionStorage.setItem('catatanku', JSON.stringify(newContent))
+        sessionStorage.setItem('notes', JSON.stringify(newContent))
         alert('Berhasil di Hapus')
     }
     const archiveContent = (id) => {
-        const updatedContent = JSON.parse(sessionStorage?.getItem('catatanku'))?.map((data) => {
+        const updatedContent = JSON.parse(sessionStorage?.getItem('notes'))?.map((data) => {
             if (data.id === id) {
                 return { ...data, archived: true };
             }
@@ -31,13 +30,13 @@ export default function Home() {
                 return data
             }
         }));
-        sessionStorage.setItem('catatanku', JSON.stringify(updatedContent));
+        sessionStorage.setItem('notes', JSON.stringify(updatedContent));
 
         alert('Berhasil dimasukkan ke Archived!');
     }
 
     useEffect(() => {
-        setContent(JSON.parse(sessionStorage.getItem('catatanku'))?.filter((data) => {
+        setContent(JSON.parse(sessionStorage.getItem('notes'))?.filter((data) => {
             if (data.archived) {
             } else {
                 return data

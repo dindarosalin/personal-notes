@@ -6,7 +6,7 @@ export default function Archived() {
     const [content, setContent] = useState([])
 
     const deleteContent = (id) => {
-        const newContent = JSON.parse(sessionStorage?.getItem('catatanku'))?.filter((data) => {
+        const newContent = JSON.parse(sessionStorage?.getItem('notes'))?.filter((data) => {
             if (data?.id !== id) {
                 return data
             }
@@ -16,11 +16,11 @@ export default function Archived() {
                 return data
             }
         }))
-        sessionStorage.setItem('catatanku', JSON.stringify(newContent))
-        alert('Berhasil di Hapus')
+        sessionStorage.setItem('notes', JSON.stringify(newContent))
+        alert('Catatan berhasil dihapus')
     }
     const unarchiveContent = (id) => {
-        const updatedContent = JSON.parse(sessionStorage?.getItem('catatanku'))?.map((data) => {
+        const updatedContent = JSON.parse(sessionStorage?.getItem('notes'))?.map((data) => {
             if (data.id === id) {
                 return { ...data, archived: false };
             }
@@ -31,13 +31,13 @@ export default function Archived() {
                 return data
             }
         }));
-        sessionStorage.setItem('catatanku', JSON.stringify(updatedContent));
+        sessionStorage.setItem('notes', JSON.stringify(updatedContent));
 
-        alert('Berhasil di Aktifkan Kembali!');
+        alert('Catatan berhasil ditampilkan');
     }
 
     useEffect(() => {
-        setContent(JSON.parse(sessionStorage.getItem('catatanku'))?.filter((data) => {
+        setContent(JSON.parse(sessionStorage.getItem('notes'))?.filter((data) => {
             if (data.archived) {
                 return data
             }

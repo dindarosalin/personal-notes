@@ -9,7 +9,7 @@ export default function DetailNote() {
     const [data, setNote] = useState(null);
 
     useEffect(() => {
-        const selectedContent = JSON.parse(sessionStorage.getItem('catatanku'))?.find(data => data.id === id);
+        const selectedContent = JSON.parse(sessionStorage.getItem('notes'))?.find(data => data.id === id);
         if (selectedContent) {
             setNote(selectedContent);
         } else {

@@ -11,7 +11,7 @@ export default function AddNote() {
     const [archived, setArchived] = useState(false)
 
     const handleSubmit = () => {
-        const existingNoteData = sessionStorage.getItem('catatanku');
+        const existingNoteData = sessionStorage.getItem('notes');
         const noteData = existingNoteData ? JSON.parse(existingNoteData) : [];
         const newData = {
             id: title
@@ -27,11 +27,11 @@ export default function AddNote() {
         noteData.push(newData);
 
         try {
-            sessionStorage.setItem('catatanku', JSON.stringify(noteData));
-            alert('Catatan Telah di Tambahkan !');
+            sessionStorage.setItem('notes', JSON.stringify(noteData));
+            alert('Catatan berhasil ditambahkan');
             navigate('/');
         } catch {
-            alert('Catatan Gagal di Tambahkan !');
+            alert('Catatan gagal ditambahkan');
         }
     }
 
