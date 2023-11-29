@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Navbar from '../components/nav'
 import Footer from '../components/footer'
+import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 
 export default function Home() {
@@ -49,8 +50,8 @@ export default function Home() {
             <Navbar />
             <div className="container">
                 <main className="">
-                        <div className="flex justify-between items-center mb-4">             
-                            <h1 className=''>Semua Catatan</h1>
+                        <div className="items-center mb-4">             
+                            <h1 className='text-center'>Semua Catatan</h1>
                             <button className='btn btn-primary text-white' onClick={() => navigate('/add-note')}>Tambah Catatan</button>
                         </div>
                         {
@@ -61,12 +62,13 @@ export default function Home() {
                                             <div className="card">
                                                 <div className="card-body">
                                                     <h5 className="card-title">{data?.title}</h5>
-                                                    <h6 class="card-subtitle mb-2 text-body-secondary">{data?.createdAt}</h6>
+                                                    <p className="card-subtitle mb-2 text-body-secondary">{data?.createdAt}</p>
                                                     <p className="card-text">
                                                         {data?.body}
                                                     </p>
                                                     <a href="#" className="card-link" onClick={() => deleteContent(data?.id)}>Hapus</a>
                                                     <a href="#" className="card-link" onClick={() => archiveContent(data?.id)}>Arsip</a>
+                                                    <a href="#" className="card-link" onClick={() => navigate(`/note-detail/${data?.id}`)}>Detail</a>
                                                 </div>
                                             </div>
                                         </div>

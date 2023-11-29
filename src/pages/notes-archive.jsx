@@ -63,13 +63,14 @@ export default function Archived() {
                                             <div className="card">
                                                 <div className="card-body">
                                                     <h5 className="card-title">{data?.title}</h5>
-                                                    <h6 class="card-subtitle mb-2 text-body-secondary">{data?.createdAt}</h6>
-                                                    
+                                                    <p className='card-subtitle text-body-secondary'>{data.createdAt}</p>
                                                     <p className="card-text">
                                                         {data?.body}
                                                     </p>
+                                                    <Link to={`/detail/${data?.id}`} className="card-link">Lihat Detail</Link>
                                                     <a href="#" className="card-link" onClick={() => deleteContent(data?.id)}>Hapus</a>
-                                                    <a href="#" className="card-link" onClick={() => archiveContent(data?.id)}>Arsip</a>
+                                                    <a href="#" className="card-link" onClick={() => unarchiveContent(data?.id)}>Tampilkan</a>
+                                                    <a href="#" className="card-link" onClick={() => navigate(`/note-detail/${data?.id}`)}>Detail</a>
                                                 </div>
                                             </div>
                                         </div>
