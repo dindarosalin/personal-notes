@@ -46,9 +46,10 @@ export default function Archived() {
 
     return (
         <>
-            <div className="container">
+        <div>
+        <Navbar active_tab={2} />
+        <div className="container">
                 <main className="flex gap-5">
-                    <Navbar active_tab={2} />
                     <div className='w-full mb-5'>
                         <div className="flex justify-between items-center mb-4">
                             <h1 className='font-semibold text-2xl'>Archived Note</h1>
@@ -57,24 +58,19 @@ export default function Archived() {
                         {
                             content ? (
                                 content?.map((data, i) => (
-                                    <div className="" key={i}>
-                                        <h1 className='font-medium text-lg'>{data?.title}</h1>
-                                        <p className='font-light text-md mt-3'>
-                                            {data?.body}
-                                        </p>
-                                        <div className="w-full flex justify-between mt-4">
-                                            <small className='font-extralight text-gray-500'>
-                                                {data?.createdAt}
-                                            </small>
-                                            <div className="icons flex gap-3">
-                                                {/* <GrTrash
-                                                    className='hover:text-red-500 hover:cursor-pointer'
-                                                    onClick={() => deleteContent(data?.id)}
-                                                />
-                                                <GrArchive
-                                                    className='hover:text-orange-500 hover:cursor-pointer'
-                                                    onClick={() => archiveContent(data?.id)}
-                                                /> */}
+                                    <div className="row" key={i}>
+                                        <div className="col-sm-6 mb-3 mb-sm-0">
+                                            <div className="card">
+                                                <div className="card-body">
+                                                    <h5 className="card-title">{data?.title}</h5>
+                                                    <h6 class="card-subtitle mb-2 text-body-secondary">{data?.createdAt}</h6>
+                                                    
+                                                    <p className="card-text">
+                                                        {data?.body}
+                                                    </p>
+                                                    <a href="#" className="card-link" onClick={() => deleteContent(data?.id)}>Hapus</a>
+                                                    <a href="#" className="card-link" onClick={() => archiveContent(data?.id)}>Arsip</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -87,6 +83,7 @@ export default function Archived() {
                 </main>
             </div>
             <Footer></Footer>
+        </div>
         </>
     )
 }

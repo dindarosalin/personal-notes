@@ -12,11 +12,11 @@ export default function navbar({ active_tab }) {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li className={`py-3 ${active_tab == 1 ? '' : ''} `} onClick={() => navigate('/')}>
-                        Home
+                        <li className='nav-item'>
+                        <a className="nav-link active" aria-current="page" href={`${active_tab == 1 ? '' : ''} `} onClick={() => navigate('/')}>Home</a>
                         </li>
-                        <li className={`py-3 px-5 ${active_tab == 2 ? '' : ''} `} onClick={() => navigate('/archived')}>
-                           Archived
+                        <li className="nav-item">
+                           <a className="nav-link active" aria-current="page" href={`${active_tab == 2 ? '' : ''} `} onClick={() => navigate('/archived')}>Archived</a>
                         </li>
                     </ul>
                     

@@ -48,31 +48,25 @@ export default function Home() {
         <>
             <Navbar />
             <div className="container">
-                <main className="flex gap-5">
-                    <div className='w-full mb-5'>
-                        <div className="flex justify-between items-center mb-4">
-                            <h1 className='font-semibold text-2xl'>Semua Catatan</h1>
+                <main className="">
+                        <div className="flex justify-between items-center mb-4">             
+                            <h1 className=''>Semua Catatan</h1>
                             <button className='btn btn-primary text-white' onClick={() => navigate('/add-note')}>Tambah Catatan</button>
                         </div>
-                        {/* Content Start */}
                         {
                             content ? (
                                 content?.map((data, i) => (
-                                    <div className="card" key={i}>
-                                        <div className="card-body">
-                                            <h5 className='card-title'>{data?.title}</h5>
-                                            <p className='card-text'>
-                                                {data?.body}
-                                            </p>
-                                            <div className="w-full flex justify-between mt-4">
-                                                <small className='font-extralight text-gray-500'>
-                                                    {data?.createdAt}
-                                                </small>
-                                                <div className="icons flex gap-3">
-                                                <button className="btn btn-danger text-white" type="submit" onClick={() => deleteContent(data?.id)}>
-                                                    Hapus</button>
-                                                    <button className="btn btn-info text-white" type="submit" onClick={() => archiveContent(data?.id)}>
-                                                    Arsip</button>
+                                    <div className="row" key={i}>
+                                        <div className="col-sm-6 mb-3 mb-sm-0">
+                                            <div className="card">
+                                                <div className="card-body">
+                                                    <h5 className="card-title">{data?.title}</h5>
+                                                    <h6 class="card-subtitle mb-2 text-body-secondary">{data?.createdAt}</h6>
+                                                    <p className="card-text">
+                                                        {data?.body}
+                                                    </p>
+                                                    <a href="#" className="card-link" onClick={() => deleteContent(data?.id)}>Hapus</a>
+                                                    <a href="#" className="card-link" onClick={() => archiveContent(data?.id)}>Arsip</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -82,8 +76,6 @@ export default function Home() {
                                 <h1 className='text-center'>Tidak ada catatan</h1>
                             )
                         }
-                    </div>
-
                 </main>
             </div>
             <Footer></Footer>

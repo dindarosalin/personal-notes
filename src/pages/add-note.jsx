@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Navbar from '../components/nav'
 import { useNavigate } from 'react-router-dom'
+import Footer from '../components/footer'
 
 export default function AddNote() {
     const navigate = useNavigate()
@@ -37,52 +38,36 @@ export default function AddNote() {
     return (
         <>
             <Navbar />
-            <div className="container mx-auto">
-                <main className="flex gap-5">
-                    <div className='w-full'>
-                        <div className="flex justify-between items-center mb-4">
-                            <h1 className='font-semibold text-2xl'>Add Note / Tambah Catatan</h1>
-                        </div>
-                        <form onSubmit={handleSubmit}>
-                            <div className="form-group">
-                                <label htmlFor="title" className='block text-gray-800'>Judul</label>
-                                <input type="text"
-                                    placeholder='Masukan judul'
-                                    className='border outline-none w-full px-3 py-2 mt-2'
-                                    value={title}
-                                    onChange={(e) => {
-                                        if (title.length < 50) {
-                                            setTitle(e.target.value)
-                                        }
-                                    }}
-                                />
-
-                                <small className={`text-sm ${title.length < 30 ? 'text-green-500' : 'text-red-500'}`}>{50 - title.length} Karakter Tersisa</small>
-
-
-                            </div>
-                            <div className="form-group mt-3">
-                                <label htmlFor="body" className='block text-gray-800'>Isi</label>
-                                <textarea rows="8"
-                                    className='border outline-none w-full px-3 py-2 mt-2'
-                                    placeholder='Masukan isi catatan'
-                                    onChange={(e) => setBody(e.target.value)}
-                                />
-                            </div>
-                            <div className="form-group gap-3 flex mt-3">
-                                <label htmlFor="archived" className='text-gray-800'>Archived</label>
-                                <input type="checkbox"
-                                    value={archived}
-                                    onChange={(e) => {
-                                        setArchived(e.target.checked)
-                                        console.log(archived)
-                                    }}
-                                />
-                            </div>
-                            <button className='bg-yellow-200 px-4 py-2 rounded-sm mt-3' type='submit'>Simpan</button>
-                        </form>
+            <div className='container mb-3'>
+                <form onSubmit={handleSubmit} >
+                    <div className="mb-3">
+                        <label htmlFor="formGroupExampleInput" className="form-label">Judul</label>
+                        <input type="text" className="form-control" id="formGroupExampleInput" placeholder="Judul Notes"
+                            value={title}
+                            onChange={(e) => {
+                                if (title.length < 50) {
+                                    setTitle(e.target.value)
+                                }
+                            }}
+                        />
+                        <small className={`text-sm ${title.length < 30 ? 'text-green-500' : 'text-red-500'}`}>{50 - title.length} Karakter Tersisa</small>
                     </div>
-                </main>
+                    <div className="input-group mb-3">
+                        <textarea className="form-control" placeholder='Masukkan Catatan' aria-label="Isi Catatan" onChange={(e) => setBody(e.target.value)}></textarea>
+                    </div>
+                    <div className="form-check mb-3">
+                        <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                        <label className="form-check-label" htmlFor="flexCheckDefault" value={archived}
+                            onChange={(e) => {
+                                setArchived(e.target.checked)
+                                console.log(archived)
+                            }}>
+                            Tambahkan ke Arsip
+                        </label>
+                    </div>
+                    <button type="submit" className="btn btn-primary text-white">Primary</button>
+                </form>
+                <Footer></Footer>
             </div>
         </>
     )
