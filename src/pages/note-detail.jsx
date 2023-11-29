@@ -21,6 +21,9 @@ export default function DetailNote() {
         <>
             <Navbar active_tab={1} />
             <div className='container'>
+                <div className="items-ceter mb-4">
+                    <h1 className='text-center'>Detail Catatan</h1>
+                </div>
                 {data ? (
                     <div className='items-center mb-4'>
                         <div className="card">
