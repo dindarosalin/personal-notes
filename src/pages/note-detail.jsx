@@ -18,9 +18,14 @@ export default function DetailNote() {
         }
     }, [id, navigate])
 
+    useEffect(() => {
+        const foundNote = getNote(id);
+        setNote(foundNote);
+    }, [id]);
+
     return (
         <>
-            <Navbar active_tab={1} />
+            <Navbar />
             <div className='container'>
                 <div className="items-ceter mb-4">
                     <h1 className='text-center'>Detail Catatan</h1>

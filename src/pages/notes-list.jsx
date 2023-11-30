@@ -63,7 +63,7 @@ export default function Home() {
 
     return (
         <>
-            <Navbar active_tab={1} />
+            <Navbar />
             <main className='container'>
                 <div className="items-center mb-4">
                     <div className="items-ceter mb-4">

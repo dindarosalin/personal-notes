@@ -16,7 +16,7 @@ export default function Archived() {
     return (
         <>
             <div>
-                <Navbar active_tab={2} />
+                <Navbar/>
                 <div className="container">
                     <main className="flex gap-5">
                         <div className="items-center mb-4">
