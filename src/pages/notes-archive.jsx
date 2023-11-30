@@ -2,49 +2,16 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Navbar from '../components/nav'
 import Footer from '../components/footer'
+import { getArchivedNotes } from '../utils/local-data'
 
 export default function Archived() {
     const navigate = useNavigate()
-    const [content, setContent] = useState([])
-
-    const deleteContent = (id) => {
-        const newContent = JSON.parse(sessionStorage?.getItem('notes'))?.filter((data) => {
-            if (data?.id !== id) {
-                return data
-            }
-        })
-        setContent(newContent?.filter((data) => {
-            if (data.archived) {
-                return data
-            }
-        }))
-        sessionStorage.setItem('notes', JSON.stringify(newContent))
-        alert('Catatan berhasil dihapus')
-    }
-    const unarchiveContent = (id) => {
-        const updatedContent = JSON.parse(sessionStorage?.getItem('notes'))?.map((data) => {
-            if (data.id === id) {
-                return { ...data, archived: false };
-            }
-            return data;
-        });
-        setContent(updatedContent?.filter((data) => {
-            if (data.archived) {
-                return data
-            }
-        }));
-        sessionStorage.setItem('notes', JSON.stringify(updatedContent));
-
-        alert('Catatan berhasil ditampilkan');
-    }
+    const [notes, setNotes] = useState([])
 
     useEffect(() => {
-        setContent(JSON.parse(sessionStorage.getItem('notes'))?.filter((data) => {
-            if (data.archived) {
-                return data
-            }
-        }))
-    }, [])
+        const allNotes = getArchivedNotes()
+        setNotes(allNotes)
+    }, []);
 
     return (
         <>
@@ -57,8 +24,8 @@ export default function Archived() {
                                 <h1 className='text-center'>Archived Note</h1>
                             </div>
                             {
-                                content ? (
-                                    content?.map((data, i) => (
+                                notes ? (
+                                    notes?.map((data, i) => (
                                         <div className="row" key={i}>
                                             <div className="col-sm-6 mb-3 mb-sm-0">
                                                 <div className="card">
