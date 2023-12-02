@@ -1,6 +1,5 @@
 import React from "react"
 import { useNavigate } from 'react-router-dom'
-import SearchNote from "./search-note"
 
 export default function navbar({ active_tab }) {
     const navigate = useNavigate()
@@ -22,7 +21,6 @@ export default function navbar({ active_tab }) {
                                 <a className="nav-link active" aria-current="page" href='' onClick={() => navigate('/archived')}>Archived</a>
                             </li>
                         </ul>
-                        <SearchNote/>
                     </div>
                 </div>
             </nav>
