@@ -1,6 +1,7 @@
 import React from "react"
 import { useNavigate } from 'react-router-dom'
 import PropTypes from 'prop-types';
+import * as Icon from 'react-bootstrap-icons';
 
 export default function navbar({ logout, name }) {
     const navigate = useNavigate()
@@ -28,7 +29,9 @@ export default function navbar({ logout, name }) {
                         </ul>
                     </div>
                     <div>
-                        <button onClick={handleLogout}>Logout</button>
+                        <button className="btn" onClick={handleLogout}>
+                        <Icon.BoxArrowRight/>
+                        </button>
                     </div>
                 </div>
             </nav>
