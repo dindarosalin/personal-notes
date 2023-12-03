@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import Navbar from '../components/nav'
 import Footer from '../components/footer'
 import { getAllNotes, archiveNote, deleteNote, getArchivedNotes, unarchiveNote, getNote } from '../utils/local-data'
 
@@ -76,7 +75,6 @@ export default function Home() {
 
     return (
         <>
-            <Navbar />
             <main className='container'>
                 <div className="items-center mt-4">
                     <div className='d-flex' role='search'>

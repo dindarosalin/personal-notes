@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import Navbar from '../components/nav'
 import Footer from '../components/footer'
 import { getArchivedNotes } from '../utils/local-data'
 
@@ -16,7 +15,6 @@ export default function Archived() {
     return (
         <>
             <div>
-                <Navbar/>
                 <div className="container">
                     <main className="flex gap-5">
                         <div className="items-center mb-4">

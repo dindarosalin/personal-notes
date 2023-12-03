@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import Navbar from '../components/nav'
 import Footer from '../components/footer'
 import { addNote } from '../utils/local-data'
 
@@ -23,7 +22,6 @@ export default function AddNote() {
 
     return (
         <>
-            <Navbar active_tab={1} />
             <div className='container mb-3'>
                 <form onSubmit={handleSubmit} >
 

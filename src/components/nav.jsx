@@ -1,9 +1,14 @@
 import React from "react"
 import { useNavigate } from 'react-router-dom'
+import PropTypes from 'prop-types';
 
-export default function navbar({ active_tab }) {
+export default function navbar({ logout, name }) {
     const navigate = useNavigate()
 
+    const handleLogout = () => {
+        logout();
+        navigate('/login');
+    }
     return (
         <>
             <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -22,8 +27,16 @@ export default function navbar({ active_tab }) {
                             </li>
                         </ul>
                     </div>
+                    <div>
+                        <button onClick={handleLogout}>Logout</button>
+                    </div>
                 </div>
             </nav>
         </>
     )
 }
+
+Navigation.propTypes = {
+    logout: PropTypes.func.isRequired,
+    name: PropTypes.string.isRequired,
+};

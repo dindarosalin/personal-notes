@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
-import Navbar from '../components/nav'
 import Footer from '../components/footer'
 import { getNote } from '../utils/local-data'
 
@@ -25,7 +24,6 @@ export default function DetailNote() {
 
     return (
         <>
-            <Navbar />
             <div className='container'>
                 <div className="items-ceter mb-4">
                     <h1 className='text-center'>Detail Catatan</h1>
