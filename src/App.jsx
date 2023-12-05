@@ -8,6 +8,7 @@ import RegistPage from './pages/regist-page';
 import LoginPage from './pages/login-page';
 import AuthHandler from './components/auth-handler';
 import Navbar from './components/nav';
+import { ThemeProvider } from './hooks/use-theme-context';
 
 class App extends Component {
   constructor(props) {
@@ -23,6 +24,7 @@ class App extends Component {
 
     return (
       <BrowserRouter>
+      <ThemeProvider>
         <AuthHandler>
           {({ authedUser, onLoginSuccess, onLogout, initializing }) => (
             <>
@@ -64,6 +66,7 @@ class App extends Component {
             </>
           )}
         </AuthHandler>
+        </ThemeProvider>
       </BrowserRouter>
     );
   }

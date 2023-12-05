@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import LoginInput from '../components/login-input';
 import { login } from '../utils/api';
 
@@ -9,6 +9,7 @@ function LoginPage({ onLoginSuccess }) {
 
     if (!error) {
       onLoginSuccess(data);
+      Navigate('/')
     }
   }
 

@@ -23,12 +23,10 @@ export default function Home() {
           const allNotes = allNotesResponse.data;
           setNotes(allNotes);
         } else {
-          // Handle error jika ada
-          // Misalnya: alert('Gagal mengambil catatan');
+          alert('Gagal mengambil catatan');
         }
       } catch (error) {
-        // Handle error jika ada
-        // Misalnya: alert('Gagal mengambil catatan');
+        alert('Gagal mengambil catatan');
       }
     };
     fetchData();
@@ -129,7 +127,6 @@ export default function Home() {
           <div className="items-center mt-4">
             <h1 className='text-center'>Semua Catatan</h1>
             <a href="" onClick={() => navigate('/add-note')}><Icon.PlusSquareFill  /></a>
-            
           </div>
           <div className='row'>
             {notes ? (
