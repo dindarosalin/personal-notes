@@ -38,7 +38,6 @@ const RegisterInput = ({ register }) => {
     <div className='container'>
       <form onSubmit={handleSubmit} className='register-input'>
         <div className='mb-3'>
-          <label htmlFor='exampleInputEmail1' className='form-label'>Email address</label>
           <input type='text'
             placeholder='Nama'
             name='name'
@@ -48,7 +47,6 @@ const RegisterInput = ({ register }) => {
             className='form-control' />
         </div>
         <div className='mb-3'>
-
           <input
             type='email'
             placeholder='Email'

@@ -58,6 +58,6 @@ class AuthHandler extends Component {
 
 export default AuthHandler
 
-AuthHandler.PropTypes = {
+AuthHandler.propTypes = {
   children: PropTypes.func.isRequired
 }

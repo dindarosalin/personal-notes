@@ -102,7 +102,7 @@ export default function Archived() {
                       <p className="card-text">{data?.body}</p>
                       <Link className="card-link" onClick={() => handleDelete(data?.id)}><Icon.Trash2Fill /></Link>
                       <Link className="card-link"  onClick={() => handleUnarchive(data?.id)}><Icon.Folder2Open /></Link>
-                      <Link className="card-link" onClick={() => handleDetail(data?.id)}><Icon.EnvelopeHeartFill /></Link>
+                      <Link className="card-link" to={`/notes/${data?.id}`} onClick={() => handleDetail(data?.id)}><Icon.EnvelopeHeartFill /></Link>
                     </div>
                   </div>
                 </div>
@@ -126,8 +126,8 @@ export default function Archived() {
                       <p className="card-subtitle text-body-secondary">{data.createdAt}</p>
                       <p className="card-text">{data?.body}</p>
                       <Link className="card-link" onClick={() => handleDelete(data?.id)}><Icon.Trash2Fill /></Link>
-                      <Link className="card-link"  onClick={() => handleUnarchive(data?.id)}><Icon.Folder2Open /></Link>
-                      <Link className="card-link" onClick={() => handleDetail(data?.id)}><Icon.EnvelopeHeartFill /></Link>
+                      <Link className="card-link" onClick={() => handleUnarchive(data?.id)}><Icon.Folder2Open /></Link>
+                      <Link className="card-link" to={`/notes/${data?.id}`} onClick={() => handleDetail(data?.id)}><Icon.EnvelopeHeartFill /></Link>
                     </div>
                   </div>
                 </div>
