@@ -1,80 +1,78 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Footer from '../components/footer';
-import { deleteNote, getArchivedNotes, unarchiveNote, getActiveNotes, getNote } from '../utils/api';
-import * as Icon from 'react-bootstrap-icons';
+import React, { useEffect, useState } from 'react'
+import { useNavigate, Link } from 'react-router-dom'
+import Footer from '../components/footer'
+import { deleteNote, getArchivedNotes, unarchiveNote, getActiveNotes, getNote } from '../utils/api'
+import * as Icon from 'react-bootstrap-icons'
 
 export default function Archived() {
-  const navigate = useNavigate();
-  const [archivedNotes, setArchivedNotes] = useState([]);
-  const [searchTerm, setSearchTerm] = useState('');
-  const [searchResults, setSearchResults] = useState([]);
+  const navigate = useNavigate()
+  const [archivedNotes, setArchivedNotes] = useState([])
+  const [searchTerm, setSearchTerm] = useState('')
+  const [searchResults, setSearchResults] = useState([])
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const archivedNotesResponse = await getArchivedNotes();
+        const archivedNotesResponse = await getArchivedNotes()
         if (!archivedNotesResponse.error) {
-          const archivedNotesData = archivedNotesResponse.data;
-          setArchivedNotes(archivedNotesData);
+          const archivedNotesData = archivedNotesResponse.data
+          setArchivedNotes(archivedNotesData)
         } else {
-          // Handle error if needed
-          // Example: alert('Gagal mengambil catatan diarsipkan');
+          alert('Gagal mengambil catatan diarsipkan')
         }
       } catch (error) {
-        // Handle error if needed
-        // Example: alert('Gagal mengambil catatan diarsipkan');
+        alert('Gagal mengambil catatan diarsipkan')
       }
-    };
+    }
 
-    fetchData();
-  }, []);
+    fetchData()
+  }, [])
 
   const handleSearch = () => {
     const results = archivedNotes.filter(
       (note) =>
         note.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
         note.body.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-    setSearchResults(results);
-  };
+    )
+    setSearchResults(results)
+  }
 
   const handleUnarchive = async (id) => {
     try {
-      await unarchiveNote(id);
-      alert('Catatan berhasil ditampilkan');
-      const updatedNotesResponse = await getActiveNotes();
+      await unarchiveNote(id)
+      alert('Catatan berhasil ditampilkan')
+      const updatedNotesResponse = await getActiveNotes()
       if (!updatedNotesResponse.error) {
-        const updatedNotes = updatedNotesResponse.data;
-        setArchivedNotes(updatedNotes.filter((note) => note.archived));
+        const updatedNotes = updatedNotesResponse.data
+        setArchivedNotes(updatedNotes.filter((note) => note.archived))
       }
     } catch {
-      alert('Catatan gagal ditampilkan');
+      alert('Catatan gagal ditampilkan')
     }
-  };
+  }
 
   const handleDelete = async (id) => {
     try {
-      await deleteNote(id);
-      alert('Catatan berhasil dihapus');
-      const updatedNotesResponse = await getActiveNotes();
+      await deleteNote(id)
+      alert('Catatan berhasil dihapus')
+      const updatedNotesResponse = await getActiveNotes()
       if (!updatedNotesResponse.error) {
-        const updatedNotes = updatedNotesResponse.data;
-        setArchivedNotes(updatedNotes.filter((note) => note.archived));
+        const updatedNotes = updatedNotesResponse.data
+        setArchivedNotes(updatedNotes.filter((note) => note.archived))
       }
     } catch {
-      alert('Catatan gagal dihapus');
+      alert('Catatan gagal dihapus')
     }
-  };
+  }
 
   const handleDetail = (id) => {
-    const note = getNote(id);
+    const note = getNote(id)
     if (note) {
-      navigate(`/note-detail/${id}`);
+      navigate(`${BASE_URL}/notes/${id}`)
     } else {
-      alert('Catatan tidak ditemukan');
+      alert('Catatan tidak ditemukan')
     }
-  };
+  }
 
   return (
     <>
@@ -102,15 +100,9 @@ export default function Archived() {
                       <h5 className="card-title">{data?.title}</h5>
                       <p className="card-subtitle mb-2 text-body-secondary">{data?.createdAt}</p>
                       <p className="card-text">{data?.body}</p>
-                      <a href="#" className="card-link" onClick={() => handleDelete(data?.id)}>
-                        <Icon.Trash2Fill />
-                      </a>
-                      <a href="#" className="card-link" onClick={() => handleUnarchive(data?.id)}>
-                        <Icon.Folder2Open />
-                      </a>
-                      <a href="#" className="card-link" onClick={() => handleDetail(data?.id)}>
-                        <Icon.EnvelopeHeartFill />
-                      </a>
+                      <Link className="card-link" onClick={() => handleDelete(data?.id)}><Icon.Trash2Fill /></Link>
+                      <Link className="card-link"  onClick={() => handleUnarchive(data?.id)}><Icon.Folder2Open /></Link>
+                      <Link className="card-link" onClick={() => handleDetail(data?.id)}><Icon.EnvelopeHeartFill /></Link>
                     </div>
                   </div>
                 </div>
@@ -133,15 +125,9 @@ export default function Archived() {
                       <h5 className="card-title">{data?.title}</h5>
                       <p className="card-subtitle text-body-secondary">{data.createdAt}</p>
                       <p className="card-text">{data?.body}</p>
-                      <a href="#" className="card-link" onClick={() => handleDelete(data?.id)}>
-                        <Icon.Trash2Fill />
-                      </a>
-                      <a href="#" className="card-link" onClick={() => handleUnarchive(data?.id)}>
-                        <Icon.Folder2Open />
-                      </a>
-                      <a href="#" className="card-link" onClick={() => handleDetail(data?.id)}>
-                        <Icon.EnvelopeHeartFill />
-                      </a>
+                      <Link className="card-link" onClick={() => handleDelete(data?.id)}><Icon.Trash2Fill /></Link>
+                      <Link className="card-link"  onClick={() => handleUnarchive(data?.id)}><Icon.Folder2Open /></Link>
+                      <Link className="card-link" onClick={() => handleDetail(data?.id)}><Icon.EnvelopeHeartFill /></Link>
                     </div>
                   </div>
                 </div>
@@ -154,5 +140,5 @@ export default function Archived() {
       </main>
       <Footer />
     </>
-  );
+  )
 }

@@ -1,30 +1,30 @@
-import React, { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import Footer from '../components/footer';
-import { getNote } from '../utils/api';
+import React, { useEffect, useState } from 'react'
+import { useParams, useNavigate } from 'react-router-dom'
+import Footer from '../components/footer'
+import { getNote } from '../utils/api'
 
 export default function DetailNote() {
-  const { id } = useParams();
-  const navigate = useNavigate();
-  const [note, setNote] = useState(null);
+  const { id } = useParams()
+  const navigate = useNavigate()
+  const [note, setNote] = useState(null)
 
   useEffect(() => {
     const fetchNote = async () => {
       try {
-        const response = await getNote(id);
+        const response = await getNote(id)
         if (!response.error) {
-          setNote(response.data);
+          setNote(response.data)
         } else {
-          navigate('/not-found');
+          navigate('/not-found')
         }
       } catch (error) {
-        console.error('Error fetching note:', error);
-        navigate('/not-found');
+        console.error('Error fetching note:', error)
+        navigate('/not-found')
       }
-    };
+    }
 
-    fetchNote();
-  }, [id, navigate]);
+    fetchNote()
+  }, [id, navigate])
 
   return (
     <>
@@ -48,5 +48,5 @@ export default function DetailNote() {
       </div>
       <Footer />
     </>
-  );
+  )
 }

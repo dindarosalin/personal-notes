@@ -1,17 +1,17 @@
-import { useState, useEffect } from "react";
-import { useThemeContext } from "../hooks/use-theme-context";
-import "../styles/theme-switch.scss";
+import { useState, useEffect } from "react"
+import { useThemeContext } from "../hooks/use-theme-context"
+import "../styles/theme-switch.scss"
 
 export default function ThemeSwitch() {
-  const { darkMode, setDarkMode } = useThemeContext();
+  const { darkMode, setDarkMode } = useThemeContext()
 
-  const switchTheme = () => setDarkMode((prev) => !prev);
+  const switchTheme = () => setDarkMode((prev) => !prev)
 
   useEffect(() => {
     darkMode
       ? document.documentElement.setAttribute("darkMode", "")
-      : document.documentElement.removeAttribute("darkMode", "");
-  }, [darkMode]);
+      : document.documentElement.removeAttribute("darkMode", "")
+  }, [darkMode])
 
   return (
     <div id="theme-switch" className="me-5">
@@ -32,5 +32,5 @@ export default function ThemeSwitch() {
         aria-label="Switch between dark and light mode"
       />
     </div>
-  );
+  )
 }

@@ -34,7 +34,7 @@ class App extends Component {
                   <>
                     <Route path='/' element={<Home />} />
                     <Route path='/add-note' element={<AddNote />} />
-                    <Route path='/note-detail/:id' element={<NoteDetail />} />
+                    <Route path='/notes/:id' element={<NoteDetail />} />
                     <Route path='/archived' element={<Archived />} />
                   </>
                 ) : (

@@ -1,8 +1,8 @@
-import { useState, createContext, useContext } from "react";
+import { useState, createContext, useContext } from 'react'
 import usePersistedState from './use-persisted-state'
 
 // register the context
-const ThemeContext = createContext({});
+const ThemeContext = createContext({})
 
 /**
  * export custom provider
@@ -10,16 +10,16 @@ const ThemeContext = createContext({});
  * @returns
  */
 export function ThemeProvider({ children }) {
-  const [darkMode, setDarkMode] = usePersistedState("darkmode", false);
+  const [darkMode, setDarkMode] = usePersistedState('darkmode', false)
 
   return (
     <ThemeContext.Provider value={{ darkMode, setDarkMode }}>
       {children}
     </ThemeContext.Provider>
-  );
+  )
 }
 
 // export a custom hook to use this specific context
 export function useThemeContext() {
-  return useContext(ThemeContext);
+  return useContext(ThemeContext)
 }

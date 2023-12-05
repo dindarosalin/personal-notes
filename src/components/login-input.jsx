@@ -1,20 +1,20 @@
-import React from 'react';
-import PropTypes from 'prop-types';
- 
+import React from 'react'
+import PropTypes from 'prop-types'
+
 class LoginInput extends React.Component {
   constructor(props) {
-    super(props);
- 
+    super(props)
+
     this.state = {
       email: '',
       password: '',
-    };
- 
-    this.onEmailChangeHandler = this.onEmailChangeHandler.bind(this);
-    this.onPasswordChangeHandler = this.onPasswordChangeHandler.bind(this);
-    this.onSubmitHandler = this.onSubmitHandler.bind(this);
+    }
+
+    this.onEmailChangeHandler = this.onEmailChangeHandler.bind(this)
+    this.onPasswordChangeHandler = this.onPasswordChangeHandler.bind(this)
+    this.onSubmitHandler = this.onSubmitHandler.bind(this)
   }
- 
+
   onEmailChangeHandler(event) {
     this.setState(() => {
       return {
@@ -22,37 +22,45 @@ class LoginInput extends React.Component {
       }
     })
   }
- 
+
   onPasswordChangeHandler(event) {
     this.setState(() => {
       return {
         password: event.target.value
-      };
-    });
+      }
+    })
   }
- 
+
   onSubmitHandler(event) {
-    event.preventDefault();
- 
+    event.preventDefault()
+
     this.props.login({
       email: this.state.email,
       password: this.state.password,
-    });
+    })
   }
- 
+
   render() {
     return (
-      <form onSubmit={this.onSubmitHandler} className='login-input'>
-        <input type="email" placeholder='Email' value={this.state.email} onChange={this.onEmailChangeHandler} />
-        <input type="password" placeholder='Password' value={this.state.password} onChange={this.onPasswordChangeHandler} />
-        <button>Masuk</button>
-      </form>
-    );
+      <div className='container'>
+        <form onSubmit={this.onSubmitHandler} className='login-input'>
+          <div className='mb-3'>
+            <label className='form-label'>Email address</label>
+            <input type='email' placeholder='Email' className='form-control' id='exampleInputEmail1' value={this.state.email} onChange={this.onEmailChangeHandler} />
+          </div>
+          <div className='mb-3'>
+            <label className='form-label'>Password</label>
+            <input type='password' className='form-control' id='exampleInputPassword1' placeholder='Password' value={this.state.password} onChange={this.onPasswordChangeHandler} />
+          </div>
+          <button type='submit' className='btn btn-primary'>Submit</button>
+        </form>
+      </div>
+    )
   }
 }
- 
+
 LoginInput.propTypes = {
   login: PropTypes.func.isRequired,
 }
- 
-export default LoginInput;
+
+export default LoginInput

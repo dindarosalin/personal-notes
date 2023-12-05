@@ -14,10 +14,10 @@ function registPage() {
   }
  
   return (
-    <section className='register-page'>
-      <h2>Gak perlu serius-serius ya isinya ...</h2>
+    <section className='register-page container'>
+      <h2 className='text-center mt-4'>Daftar Dulu</h2>
       <RegisterInput register={onRegisterHandler} />
-      <p>Kembali ke <Link to="/">Masuk</Link></p>
+      <p className='text-center'>Udah Punya Akun? <Link to="/">Masuk</Link></p>
     </section>
   )
 }

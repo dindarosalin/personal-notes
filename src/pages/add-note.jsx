@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Footer from '../components/footer'
-import { addNote } from '../utils/local-data'
+import { addNote } from '../utils/api'
 
 export default function AddNote() {
     const navigate = useNavigate()
@@ -25,13 +25,13 @@ export default function AddNote() {
             <div className='container mb-3'>
                 <form onSubmit={handleSubmit} >
 
-                    <div className="mb-3">
-                        <label htmlFor="formGroupExampleInput" className="form-label">Judul</label>
+                    <div className='mb-3'>
+                        <label htmlFor='formGroupExampleInput' className='form-label'>Judul</label>
                         <input 
-                            type="text" 
-                            className="form-control" 
-                            id="formGroupExampleInput" 
-                            placeholder="Judul Notes"
+                            type='text' 
+                            className='form-control' 
+                            id='formGroupExampleInput' 
+                            placeholder='Judul Notes'
                             value={title}
                             onChange={(e) => setTitle(e.target.value)}
                         />
@@ -40,30 +40,30 @@ export default function AddNote() {
                         </small>
                     </div>
 
-                    <div className="input-group mb-3">
+                    <div className='input-group mb-3'>
                         <textarea 
-                            className="form-control" 
+                            className='form-control' 
                             placeholder='Masukkan Catatan' 
-                            aria-label="Isi Catatan" 
+                            aria-label='Isi Catatan' 
                             value={body}
                             onChange={(e) => setBody(e.target.value)}
                         ></textarea>
                     </div>
 
-                    <div className="form-check mb-3">
+                    <div className='form-check mb-3'>
                         <input 
-                            className="form-check-input" 
-                            type="checkbox" 
-                            id="flexCheckDefault" 
+                            className='form-check-input' 
+                            type='checkbox' 
+                            id='flexCheckDefault' 
                             checked={archived}
                             onChange={(e) => setArchived(e.target.checked)}
                         />
-                        <label className="form-check-label" htmlFor="flexCheckDefault">
+                        <label className='form-check-label' htmlFor='flexCheckDefault'>
                             Tambahkan ke Arsip
                         </label>
                     </div>
 
-                    <button type="submit" className="btn btn-primary text-white">Primary</button>
+                    <button type='submit' className='btn btn-primary text-white'>Primary</button>
                 </form>
                 <Footer></Footer>
             </div>
