@@ -38,18 +38,19 @@ const RegisterInput = ({ register }) => {
     <div className='container'>
       <form onSubmit={handleSubmit} className='register-input'>
         <div className='mb-3'>
+        <label className="form-label">Your Name</label>
           <input type='text'
-            placeholder='Nama'
-            name='name'
+                        name='name'
             value={name}
             onChange={handleChange}
             required
             className='form-control' />
         </div>
         <div className='mb-3'>
+        <label className="form-label">Email address</label>
           <input
             type='email'
-            placeholder='Email'
+            
             name='email'
             value={email}
             onChange={handleChange}
@@ -58,9 +59,9 @@ const RegisterInput = ({ register }) => {
           />
         </div>
         <div className='mb-3'>
+        <label className="form-label">Input Password</label>
           <input
             type='password'
-            placeholder='Password'
             autoComplete='current-password'
             name='password'
             value={password}
@@ -70,9 +71,9 @@ const RegisterInput = ({ register }) => {
           />
         </div>
         <div className='mb-3'>
+        <label class="form-label">Confirm Password</label>
           <input
             type='password'
-            placeholder='Confirm Password'
             autoComplete='current-password'
             name='confirmPassword'
             value={confirmPassword}

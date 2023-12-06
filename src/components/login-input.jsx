@@ -45,10 +45,12 @@ class LoginInput extends React.Component {
       <div className='container'>
         <form onSubmit={this.onSubmitHandler} className='login-input'>
           <div className='mb-3'>
-            <input type='email' placeholder='Email' className='form-control' id='exampleInputEmail1' value={this.state.email} onChange={this.onEmailChangeHandler} />
+            <label className="form-label">Email address</label>
+            <input type='email' className='form-control' id='exampleInputEmail1' value={this.state.email} onChange={this.onEmailChangeHandler} />
           </div>
           <div className='mb-3'>
-            <input type='password' className='form-control' id='exampleInputPassword1' placeholder='Password' value={this.state.password} onChange={this.onPasswordChangeHandler} />
+          <label className="form-label">Password</label>
+            <input type='password' className='form-control' id='exampleInputPassword1' value={this.state.password} onChange={this.onPasswordChangeHandler} />
           </div>
           <button type='submit' className='btn btn-primary'>Submit</button>
         </form>

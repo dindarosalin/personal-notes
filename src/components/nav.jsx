@@ -14,22 +14,22 @@ export default function Navbar({ logout, name }) {
 
     return (
         <>
-            <nav className='navbar navbar-expand-lg bg-primary'>
-                <div className='container-fluid'>
-                    <a className='navbar-brand' href='/'>Personal Notes</a>
+            <nav className='navbar navbar-expand-lg sticky-top bg-primary'>
+                <div className='container'>
+                    <a className='navbar-brand text-white' href='/'>Personal Notes</a>
                     <button className='navbar-toggler' type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
                         <span className='navbar-toggler-icon'></span>
                     </button>
                     <div className='collapse navbar-collapse' id='navbarSupportedContent'>
                         <ul className='navbar-nav me-auto mb-2 mb-lg-0'>
-                            <li className='nav-item'>
-                                <Link className='nav-link active' to='/' onClick={() => navigate('/')}>Home</Link>
+                            <li className='nav-item '>
+                                <Link className='nav-link active text-white' to='/' onClick={() => navigate('/')}>Home</Link>
                             </li>
                             <li className='nav-item'>
-                                <Link className='nav-link active' to='/archived' onClick={() => navigate('/archived')}>Archived</Link>
+                                <Link className='nav-link active text-white' to='/archived' onClick={() => navigate('/archived')}>Archived</Link>
                             </li>
                         </ul>
-                        <button className='btn me-4 mb-2' onClick={handleLogout}><Icon.BoxArrowRight /> {name}</button>
+                        <button className='btn btn-highlight me-4 mt-2 mb-2' onClick={handleLogout}><Icon.BoxArrowRight /> {name}</button>
                         <ThemeSwitch />
                     </div>
                 </div>

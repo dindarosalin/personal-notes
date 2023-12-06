@@ -24,7 +24,6 @@ export default function AddNote() {
         <>
             <div className='container mb-3'>
                 <form onSubmit={handleSubmit} >
-
                     <div className='mb-3'>
                         <label htmlFor='formGroupExampleInput' className='form-label'>Judul</label>
                         <input 
@@ -39,7 +38,6 @@ export default function AddNote() {
                             {50 - title.length} Karakter Tersisa
                         </small>
                     </div>
-
                     <div className='input-group mb-3'>
                         <textarea 
                             className='form-control' 
@@ -51,8 +49,8 @@ export default function AddNote() {
                     </div>
                     <button type='submit' className='btn btn-primary text-white'>Primary</button>
                 </form>
-                <Footer></Footer>
             </div>
+            <Footer/>
         </>
     )
 }

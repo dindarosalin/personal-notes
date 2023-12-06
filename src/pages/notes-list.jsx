@@ -70,15 +70,6 @@ export default function Home() {
     }
   }
 
-  const handleDetail = (id) => {
-    const note = getNote(id)
-    if (note) {
-      navigate(`${BASE_URL}/notes/${id}`)
-    } else {
-      alert('Catatan tidak ditemukan')
-    }
-  }
-
   return (
     <>
       <main className='container'>
@@ -91,7 +82,9 @@ export default function Home() {
               aria-label="Search"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)} />
-            <button className="btn" onClick={handleSearch}><Icon.SearchHeart /></button>
+            <button className="btn btn-highlight" onClick={handleSearch}>
+              Search
+            </button>
           </div>
           <div className="row" >
             {
@@ -103,24 +96,24 @@ export default function Home() {
                         <h5 className="card-title">{data?.title}</h5>
                         <p className="card-subtitle mb-2 text-body-secondary">{data?.createdAt}</p>
                         <p className="card-text">{data?.body}</p>
-                        <Link className="card-link" onClick={() => handleDelete(data?.id)}><Icon.Trash2Fill /></Link>
-                      <Link className="card-link"  onClick={() => handleArchive(data?.id)}><Icon.ArchiveFill /></Link>
-                      <Link to={`/notes/${data.id}`} className="card-link"><Icon.EnvelopeHeartFill /></Link>
+                        <Link className="card-link link-highlight" onClick={() => handleDelete(data?.id)}><Icon.Trash2Fill /></Link>
+                        <Link className="card-link link-highlight" onClick={() => handleArchive(data?.id)}><Icon.ArchiveFill /></Link>
+                        <Link to={`/notes/${data.id}`} className="card-link link-highlight"><Icon.EnvelopeHeartFill /></Link>
                       </div>
                     </div>
                   </div>
 
                 ))
               ) : (
-                <p className='mt-3'>Tidak ada hasil pencarian</p>
+                <p className='mt-3'>Tidak ada pencarian</p>
               )
             }
           </div>
         </div>
         <div className="items-center mb-4">
-          <div className="items-center mt-4">
-            <h1 className='text-center'>Catatan Aktif</h1>
-            <Link className="nav-link active" to="/add-note" onClick={() => navigate('/add-note')}><Icon.PlusSquareFill  /></Link>
+          <div className="d-flex justify-content-between align-items-center">
+          <h1 className=''>Catatan Aktif</h1>
+          <Link className="btn btn-highlight" to="/add-note" onClick={() => navigate('/add-note')}>+ Add Note</Link>
           </div>
           <div className='row'>
             {notes ? (
@@ -133,9 +126,9 @@ export default function Home() {
                       <p className="card-text">
                         {data?.body}
                       </p>
-                      <Link className="card-link" onClick={() => handleDelete(data?.id)}><Icon.Trash2Fill /></Link>
-                      <Link className="card-link"  onClick={() => handleArchive(data?.id)}><Icon.ArchiveFill /></Link>
-                      <Link to={`/notes/${data.id}`} className="card-link"><Icon.EnvelopeHeartFill /></Link>
+                      <Link className="card-link link-highlight" onClick={() => handleDelete(data?.id)}><Icon.Trash2Fill /></Link>
+                      <Link className="card-link link-highlight" onClick={() => handleArchive(data?.id)}><Icon.ArchiveFill /></Link>
+                      <Link to={`/notes/${data.id}`} className="card-link link-highlight"><Icon.EnvelopeHeartFill /></Link>
                     </div>
                   </div>
                 </div>
@@ -146,7 +139,6 @@ export default function Home() {
             }
           </div>
         </div>
-
       </main>
       <Footer />
     </>

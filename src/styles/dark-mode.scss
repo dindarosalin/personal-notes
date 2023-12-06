@@ -1,8 +1,8 @@
 html[darkmode] {
 
     // Generate dark palettes for theme colors.
-    $primary:       #83A2FF;
-    $secondary:     #B4BDFF;
+    $primary:       #22668D;
+    $secondary:     #8ECDDD;
     $accent-1:      #212529;
     $accent-2:      #414850;
     $accent-3:      #adb5bd;
@@ -14,7 +14,14 @@ html[darkmode] {
       "accent-2":   $accent-2,
       "accent-3":   $accent-3,
     );
-  
+    
+    .card, .form-control {
+      outline: 1px solid $primary;
+      @media (prefers-color-scheme: dark) {
+        outline: 1px solid $accent-1;
+      }
+    }
+    
     @each $color, $value in $theme-colors {
       --#{$variable-prefix}#{$color}: #{$value};
     }

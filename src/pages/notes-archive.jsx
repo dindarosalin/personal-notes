@@ -87,7 +87,7 @@ export default function Archived() {
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
-            <button className="btn btn-primary text-white" onClick={handleSearch}>
+            <button className="btn btn-highlight" onClick={handleSearch}>
               Search
             </button>
           </div>
@@ -100,15 +100,15 @@ export default function Archived() {
                       <h5 className="card-title">{data?.title}</h5>
                       <p className="card-subtitle mb-2 text-body-secondary">{data?.createdAt}</p>
                       <p className="card-text">{data?.body}</p>
-                      <Link className="card-link" onClick={() => handleDelete(data?.id)}><Icon.Trash2Fill /></Link>
-                      <Link className="card-link"  onClick={() => handleUnarchive(data?.id)}><Icon.Folder2Open /></Link>
-                      <Link to={`/notes/${data.id}`} className="card-link"><Icon.EnvelopeHeartFill /></Link>
+                      <Link className="card-link link-highlight" onClick={() => handleDelete(data?.id)}><Icon.Trash2Fill /></Link>
+                      <Link className="card-link link-highlight"  onClick={() => handleUnarchive(data?.id)}><Icon.Folder2Open /></Link>
+                      <Link to={`/notes/${data.id}`} className="card-link link-highlight"><Icon.EnvelopeHeartFill /></Link>
                     </div>
                   </div>
                 </div>
               ))
             ) : (
-              <p className="mt-3">Tidak ada hasil pencarian</p>
+              <p className="mt-3">Tidak ada pencarian</p>
             )}
           </div>
         </div>
@@ -124,10 +124,10 @@ export default function Archived() {
                     <div className="card-body">
                       <h5 className="card-title">{data?.title}</h5>
                       <p className="card-subtitle text-body-secondary">{data.createdAt}</p>
-                      <p className="card-text">{data?.body}</p>
-                      <Link className="card-link" onClick={() => handleDelete(data?.id)}><Icon.Trash2Fill /></Link>
-                      <Link className="card-link" onClick={() => handleUnarchive(data?.id)}><Icon.Folder2Open /></Link>
-                      <Link to={`/notes/${data.id}`} className="card-link"><Icon.EnvelopeHeartFill /></Link>
+                      <p className="card-text ">{data?.body}</p>
+                      <Link className="card-link link-highlight" onClick={() => handleDelete(data?.id)}><Icon.Trash2Fill /></Link>
+                      <Link className="card-link link-highlight" onClick={() => handleUnarchive(data?.id)}><Icon.Folder2Open /></Link>
+                      <Link to={`/notes/${data.id}`} className="card-link link-highlight"><Icon.EnvelopeHeartFill /></Link>
                     </div>
                   </div>
                 </div>

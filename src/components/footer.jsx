@@ -1,10 +1,10 @@
+import * as Icon from 'react-bootstrap-icons'
+
 export default function footer() {
     return (
         <>
-            <div className="card-body items-center mt-4">
-                <p className="card-text text-center">
-                    dindarosalin 2023
-                </p>
+            <div className="card-body p-2 mt-4 text-center bg-primary">
+                <a className='card-link text-white' href="https://github.com/dindarosalin">dindarosalin 2023</a>
             </div>
         </>
     )
