@@ -24,48 +24,43 @@ class App extends Component {
 
     return (
       <BrowserRouter>
-      <ThemeProvider>
-        <AuthHandler>
-          {({ authedUser, onLoginSuccess, onLogout, initializing }) => (
-            <>
-              <Navbar logout={onLogout} name={authedUser ? authedUser.name : ''} />
-              <Routes>
-                {authedUser ? (
-                  <>
-                    <Route path='/' element={<Home />} />
-                    <Route path='/add-note' element={<AddNote />} />
-                    <Route path='/notes/:id' element={<NoteDetail />} />
-                    <Route path='/archived' element={<Archived />} />
-                  </>
-                ) : (
-                  <Route
-                    path='/*'
-                    element={
-                      <LoginPage
-                        authedUser={authedUser}
-                        onLoginSuccess={onLoginSuccess}
-                        onLogout={onLogout}
-                        initializing={initializing}
+        <ThemeProvider>
+          <AuthHandler>
+            {({ authedUser, onLoginSuccess, onLogout, initializing }) => (
+              <>
+                <Navbar logout={onLogout} name={authedUser ? authedUser.name : ''} />
+                <Routes>
+                  {authedUser ? (
+                    <>
+                      <Route path='/' element={<Home />}/>
+                      <Route path='/add-note' element={<AddNote />}/>
+                      <Route path='/notes/:id' element={<NoteDetail />}/>
+                      <Route path='/archived' element={<Archived />}/>
+                      <Route path='/login' element={<Navigate to='/' />}/>
+                      <Route path='/register' element={<Navigate to='/' />}
                       />
-                    }
-                  />
-                )}
-                <Route path='/register' element={<RegistPage />} />
-                <Route
-                  path='/login'
-                  element={
-                    <LoginPage
-                      authedUser={authedUser}
-                      onLoginSuccess={onLoginSuccess}
-                      onLogout={onLogout}
-                      initializing={initializing}
-                    />
-                  }
-                />
-              </Routes>
-            </>
-          )}
-        </AuthHandler>
+                    </>
+                  ) : (
+                    <>
+                      <Route
+                        path='/'
+                        element={
+                          <LoginPage
+                            authedUser={authedUser}
+                            onLoginSuccess={onLoginSuccess}
+                            onLogout={onLogout}
+                            initializing={initializing}
+                          />
+                        }
+                      />
+                      <Route path='/register' element={<RegistPage />}/>
+                      <Route path='/login' element={<Navigate to='/' />}/>
+                    </>
+                  )}
+                </Routes>
+              </>
+            )}
+          </AuthHandler>
         </ThemeProvider>
       </BrowserRouter>
     );

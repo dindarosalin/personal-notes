@@ -49,20 +49,6 @@ export default function AddNote() {
                             onChange={(e) => setBody(e.target.value)}
                         ></textarea>
                     </div>
-
-                    <div className='form-check mb-3'>
-                        <input 
-                            className='form-check-input' 
-                            type='checkbox' 
-                            id='flexCheckDefault' 
-                            checked={archived}
-                            onChange={(e) => setArchived(e.target.checked)}
-                        />
-                        <label className='form-check-label' htmlFor='flexCheckDefault'>
-                            Tambahkan ke Arsip
-                        </label>
-                    </div>
-
                     <button type='submit' className='btn btn-primary text-white'>Primary</button>
                 </form>
                 <Footer></Footer>

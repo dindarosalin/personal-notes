@@ -119,7 +119,7 @@ export default function Home() {
         </div>
         <div className="items-center mb-4">
           <div className="items-center mt-4">
-            <h1 className='text-center'>Semua Catatan</h1>
+            <h1 className='text-center'>Catatan Aktif</h1>
             <Link className="nav-link active" to="/add-note" onClick={() => navigate('/add-note')}><Icon.PlusSquareFill  /></Link>
           </div>
           <div className='row'>
