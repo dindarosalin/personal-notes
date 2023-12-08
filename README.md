@@ -27,4 +27,9 @@ npm run dev
 7. Delete Note
 
 ## UI
-![Dashboard](src/public/apk-img/app/mobile (1).PNG)
+![Dashboard](public/apk-img/mobile1.png)
+![Dashboard](public/apk-img/mobile2.png)
+![Dashboard](public/apk-img/mobile3.png)
+![Dashboard](public/apk-img/mobile4.png)
+![Dashboard](public/apk-img/mobile5.png)
+![Dashboard](public/apk-img/mobile6.png)
